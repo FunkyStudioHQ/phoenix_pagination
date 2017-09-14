@@ -32,9 +32,10 @@ defmodule Phoenix.Pagination.PaginatorTest do
   end
 
   test "build full abs url with params" do
-    params = [query: "foo", page: 2, per_page: 10, foo: [1,2]]
+    params = %{query: "foo", page: 2, per_page: 10, foo: [1,2]}
     conn = %{request_path: "http://localhost:4000/products"}
-    expected = "http://localhost:4000/products?query=foo&page=2&per_page=10&foo[]=1&foo[]=2"
+
+    expected = "http://localhost:4000/products?foo[]=1&foo[]=2&page=2&per_page=10&query=foo"
     assert build_url(conn, params) == expected
   end
 

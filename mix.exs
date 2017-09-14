@@ -39,15 +39,17 @@ defmodule Phoenix.Pagination.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:phoenix_html, "~> 2.6"},
-     {:plug, "~> 1.0"},
-     {:ecto, "~> 2.0"},
-     # Test dependencies
-     {:postgrex, "~> 0.12.0", only: [:test]},
-     # Docs dependencies
-     {:earmark, "~> 0.1", only: :docs},
-     {:ex_doc, "~> 0.11", only: :docs},
-     {:inch_ex, "~> 0.2", only: :docs}]
+    [
+      {:phoenix_html, "~> 2.10"},
+      {:plug, "~> 1.4"},
+      {:ecto, "~> 2.2"},
+      # Test dependencies
+      {:postgrex, ">= 0.0.0", only: [:test]},
+      # Docs dependencies
+      {:earmark, "~> 1.1", only: :docs},
+      {:ex_doc, "~> 0.16", only: :docs},
+      {:inch_ex, "~> 0.5", only: :docs}
+    ]
   end
 
   defp path(:test) do

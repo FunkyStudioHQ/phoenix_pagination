@@ -5,6 +5,6 @@ defmodule Phoenix.Pagination.Product do
     field :name, :string
     field :price, :decimal
 
-    timestamps
+    timestamps()
   end
 end

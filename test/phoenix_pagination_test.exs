@@ -58,10 +58,12 @@ defmodule Phoenix.PaginationTest do
 
   test "page offset constraint" do
     create_products()
-    {_items, phoenix_pagination} = Product |> Repo.paginate(%{"page" => 100}, total_count: 3, per_page: 5, max_page: 10)
+    {_items, phoenix_pagination} = Product
+    |> Repo.paginate(%{"page" => 100}, total_count: 3, per_page: 5, max_page: 10)
+
     assert phoenix_pagination.total_count == 3
     assert phoenix_pagination.total_pages == 1
-    assert phoenix_pagination.page == 10
+    assert phoenix_pagination.page == 1
   end
 
   test "fallbacks to count query when provided total_count is nil" do
@@ -73,7 +75,7 @@ defmodule Phoenix.PaginationTest do
 
   test "to_integer returns number" do
     assert Phoenix.Pagination.to_integer(10) == 10
-    assert Phoenix.Pagination.to_integer("10") == 1
+    assert Phoenix.Pagination.to_integer("10") == 10
     assert Phoenix.Pagination.to_integer(nil) == 1
   end
 end

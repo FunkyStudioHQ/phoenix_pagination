@@ -38,14 +38,13 @@ defmodule Phoenix.Pagination.HTML do
         _  -> nil
     end
   end
-  defp build_link(button, name, opts \\ []) do
+  defp build_link(button, _name, opts) do
     [{name, _,url, current}] = button
     link text_label(name, opts[:label]), to: url, class: css_class(current, opts)
   end
 
   defp text_label(name, nil), do: to_string(name)
   defp text_label(_, label), do: label
-
 
   defp list_links(page_list) do
     page_list

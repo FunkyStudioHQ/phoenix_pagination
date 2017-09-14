@@ -5,7 +5,7 @@ defmodule Phoenix.Pagination.Mixfile do
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.5.1",
+     elixir: "~> 1.2",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,

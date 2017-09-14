@@ -5,7 +5,7 @@ Pagination for Ecto and Phoenix.
 
 ## Installation
 
-The package is [available in Hex](https://hex.pm/packages/phoenix_pagination), the package can be installed as:
+The package is [available in Hex](https://hex.pm/packages/phoenix-pagination), the package can be installed as:
 
 Add phoenix_pagination to your list of dependencies in `mix.exs`:
 ```elixir
@@ -95,7 +95,7 @@ This project comes from a [Kerosene](https://github.com/elixirdrops/kerosene) fo
 
 I would like to Thank
 
-* elixirdrops (@elixirdrops)
+* elixirdrops ([@elixirdrops](https://github.com/elixirdrops))
 
 ## License
 

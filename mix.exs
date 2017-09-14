@@ -14,7 +14,7 @@ defmodule Phoenix.Pagination.Mixfile do
      aliases: aliases(),
      name: "Phoenix.Pagination",
      docs: [source_ref: "v#{@version}", main: "Phoenix.Pagination"],
-     source_url: "https://github.com/elixirdrops/phoenix_pagination",
+     source_url: "https://github.com/FunkyStudioHQ/phoenix-pagination.git",
      description: """
      Pagination for Ecto and Phoenix.
      """]
@@ -58,7 +58,7 @@ defmodule Phoenix.Pagination.Mixfile do
   defp package do
     [maintainers: ["Funky Studio"],
      licenses: ["MIT"],
-     links: %{github: "https://github.com/FunkyStudioHQ/phoenix_pagination.git"},
+     links: %{github: "https://github.com/FunkyStudioHQ/phoenix-pagination.git"},
      files: ~w(lib test config) ++
             ~w(CHANGELOG.md LICENSE.md mix.exs README.md)]
   end

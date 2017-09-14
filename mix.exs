@@ -14,7 +14,7 @@ defmodule Phoenix.Pagination.Mixfile do
      aliases: aliases(),
      name: "Phoenix.Pagination",
      docs: [source_ref: "v#{@version}", main: "Phoenix.Pagination"],
-     source_url: "https://github.com/FunkyStudioHQ/phoenix-pagination.git",
+     source_url: "https://github.com/FunkyStudioHQ/phoenix-pagination",
      description: """
      Pagination for Ecto and Phoenix.
      """]

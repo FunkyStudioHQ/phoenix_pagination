@@ -62,7 +62,7 @@ defmodule Phoenix.Pagination.Paginator do
 
   def build_url(conn, nil), do: conn.request_path
   def build_url(conn, params) do
-    params = params
+    p = params
     |> Map.delete("id")
     |> Enum.filter(fn {k, _v} ->
       if is_atom(k) do
@@ -71,7 +71,7 @@ defmodule Phoenix.Pagination.Paginator do
       !String.ends_with?(k, "_id")
     end)
 
-    "#{conn.request_path}?#{build_query(params)}"
+    "#{conn.request_path}?#{build_query(p)}"
   end
 
   @doc """

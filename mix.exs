@@ -5,16 +5,16 @@ defmodule Phoenix.Pagination.Mixfile do
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.2",
+     elixir: "~> 1.5.1",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
      aliases: aliases(),
-     name: "Phoenix.Pagination",
-     docs: [source_ref: "v#{@version}", main: "Phoenix.Pagination"],
-     source_url: "https://github.com/FunkyStudioHQ/phoenix-pagination",
+     name: "phoenix_pagination",
+     docs: [source_ref: "v#{@version}", main: "phoenix_pagination"],
+     source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination",
      description: """
      Pagination for Ecto and Phoenix.
      """]
@@ -58,7 +58,7 @@ defmodule Phoenix.Pagination.Mixfile do
   defp package do
     [maintainers: ["Funky Studio"],
      licenses: ["MIT"],
-     links: %{github: "https://github.com/FunkyStudioHQ/phoenix-pagination.git"},
+     links: %{github: "https://github.com/FunkyStudioHQ/phoenix_pagination.git"},
      files: ~w(lib test config) ++
             ~w(CHANGELOG.md LICENSE.md mix.exs README.md)]
   end

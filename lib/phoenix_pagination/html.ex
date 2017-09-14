@@ -1,6 +1,5 @@
 defmodule Phoenix.Pagination.HTML do
   use Phoenix.HTML
-  alias Phoenix.Pagination.HTML
   import Phoenix.Pagination.Paginator, only: [build_options: 1]
 
   @buttons_labels ~w(first previous next last)a

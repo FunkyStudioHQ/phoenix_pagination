@@ -65,10 +65,11 @@ defmodule Phoenix.Pagination.Paginator do
     p = params
     |> Map.delete("id")
     |> Enum.filter(fn {k, _v} ->
-      if is_atom(k) do
-        k = Atom.to_string(k)
+      key = case is_atom(k) do
+        true -> Atom.to_string(k)
+          _  -> k
       end
-      !String.ends_with?(k, "_id")
+      !String.ends_with?(key, "_id")
     end)
 
     "#{conn.request_path}?#{build_query(p)}"

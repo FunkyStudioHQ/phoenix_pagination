@@ -1,6 +1,6 @@
 defmodule Phoenix.Pagination.Mixfile do
   use Mix.Project
-  @version "0.0.1"
+  @version "0.0.2"
 
   def project do
     [app: :phoenix_pagination,
@@ -14,7 +14,7 @@ defmodule Phoenix.Pagination.Mixfile do
      aliases: aliases(),
      name: "phoenix_pagination",
      docs: [source_ref: "v#{@version}", main: "phoenix_pagination"],
-     source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination",
+     source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
      description: """
      Pagination for Ecto and Phoenix.
      """]

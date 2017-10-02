@@ -29,8 +29,8 @@ defmodule Phoenix.Pagination do
     total_count = get_total_count(opts[:total_count], repo, query)
     total_pages = get_total_pages(total_count, per_page)
     page = get_page(opts, total_pages)
-    offset = get_offset(total_count, page)
-    params = opts[:params]        
+    offset = get_offset(total_count, page, per_page)
+    params = opts[:params]
 
     phoenix_pagination = %Phoenix.Pagination {
       per_page: per_page,
@@ -52,14 +52,14 @@ defmodule Phoenix.Pagination do
     |> repo.all
   end
 
-  defp get_offset(total_pages, page) do
+  defp get_offset(total_pages, page, per_page) do
     page = case page > total_pages do
       true -> total_pages
       _ -> page
     end
 
     case page > 0 do
-      true -> page - 1
+      true -> (page - 1) * per_page
       _ -> page
     end
   end

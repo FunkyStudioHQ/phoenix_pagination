@@ -59,11 +59,16 @@ defmodule Phoenix.Pagination.Mixfile do
   defp path(_), do: ["lib"]
 
   defp package do
-    [maintainers: ["Funky Studio"],
-     licenses: ["MIT"],
-     links: %{github: "https://github.com/FunkyStudioHQ/phoenix_pagination.git"},
-     files: ~w(lib test config) ++
-            ~w(CHANGELOG.md LICENSE.md mix.exs README.md)]
+    [
+      maintainers: ["FunkyStudio"],
+      licenses: ["MIT"],
+      links: %{
+        "Github" => "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
+        "Documentation" => "https://hexdocs.pm/phoenix_pagination",
+        "FunkyStudio" => "https://funky.studio"
+      },
+      files: ~w(lib test config) ++ ~w(CHANGELOG.md LICENSE.md mix.exs README.md)
+    ]
   end
 
   def aliases do

@@ -14,7 +14,7 @@ defmodule Phoenix.Pagination.Mixfile do
      aliases: aliases(),
      name: "phoenix_pagination",
      docs: [
-       main: "phoenix_pagination",
+       main: "Phoenix.Pagination",
        extras: ["README.md"],
        source_ref: "v#{@version}"],
      source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination.git",

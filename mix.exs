@@ -68,7 +68,7 @@ defmodule Phoenix.Pagination.Mixfile do
       licenses: ["MIT"],
       links: %{
         "Github" => "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
-        "FunkyStudio" => "https://funky.studio"
+        "FunkyStudio" => "http://funky.studio"
       },
       files: ~w(lib test config) ++ ~w(CHANGELOG.md LICENSE.md mix.exs README.md)
     ]

@@ -13,11 +13,19 @@ defmodule Phoenix.Pagination.Mixfile do
      deps: deps(),
      aliases: aliases(),
      name: "phoenix_pagination",
-     docs: [source_ref: "v#{@version}", main: "phoenix_pagination"],
+     docs: [
+       main: "phoenix_pagination",
+       extras: ["README.md"],
+       source_ref: "v#{@version}"],
      source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
+     homepage_url: "https://github.com/FunkyStudioHQ/phoenix_pagination",
      description: """
      Simple pagination for Ecto and Phoenix using plaing EEx templates.
      """]
+
+     [app: :my_app,
+   version: "0.1.0-dev",
+   deps: deps(),
   end
 
   # Configuration for the OTP application
@@ -47,9 +55,9 @@ defmodule Phoenix.Pagination.Mixfile do
       {:postgrex, ">= 0.0.0", only: [:test]},
       {:credo, "~> 0.8", only: [:dev, :test]},
       # Docs dependencies
-      {:earmark, "~> 1.1", only: [:docs, :dev]},
-      {:ex_doc, "~> 0.17", only: [:docs, :dev]},
-      {:inch_ex, "~> 0.5", only: [:docs, :dev]}
+      {:earmark, "~> 1.1", only: :dev},
+      {:ex_doc, "~> 0.17", only: :dev, runtime: false},
+      {:inch_ex, "~> 0.5", only: :dev}
     ]
   end
 
@@ -64,7 +72,6 @@ defmodule Phoenix.Pagination.Mixfile do
       licenses: ["MIT"],
       links: %{
         "Github" => "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
-        "Documentation" => "https://hexdocs.pm/phoenix_pagination",
         "FunkyStudio" => "https://funky.studio"
       },
       files: ~w(lib test config) ++ ~w(CHANGELOG.md LICENSE.md mix.exs README.md)

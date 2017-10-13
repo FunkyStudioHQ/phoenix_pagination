@@ -1,16 +1,15 @@
 # Phoenix.Pagination
 
-Pagination for Ecto and Phoenix.
-
+Simple pagination for Ecto and Phoenix using plaing EEx templates. It is based on a fork of [Kerosene](https://github.com/elixirdrops/kerosene), we think that pagination markup should be handled in templates, rather than with helper functions. So, here it comes.
 
 ## Installation
 
-The package is [available in Hex](https://hex.pm/packages/phoenix-pagination), the package can be installed as:
+If [available in Hex](https://hex.pm/packages/phoenix_pagination), can be installed as:
 
 Add phoenix_pagination to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
-  [{:phoenix_pagination, "~> 0.0.1"}]
+  [{:phoenix_pagination, "~> 0.5.0"}]
 end
 ```
 
@@ -18,7 +17,7 @@ Add Phoenix.Pagination to your `repo.ex`:
 ```elixir
 defmodule MyApp.Repo do
   use Ecto.Repo, otp_app: :testapp
-  use Phoenix.Pagination, per_page: 2
+  use Phoenix.Pagination, per_page: 15
 end
 ```
 
@@ -26,8 +25,7 @@ end
 Start paginating your queries
 ```elixir
 def index(conn, params) do
-  {products, pagination} =
-  Product
+  {products, pagination} =  Product
   |> Product.with_lowest_price
   |> Repo.paginate(params)
 
@@ -37,38 +35,41 @@ end
 
 Add view helpers to your view
 ```elixir
-defmodule MyApp.ProductView do
-  use MyApp.Web, :view
+defmodule MyAppWeb.ProductView do
+  use MyAppWeb, :view
   import Phoenix.Pagination.HTML
 end
 ```
 
-Generate the links using the view helpers
+Create your pagination template in `lib/my_app_web/templates/pagination/pagination.html.eex`
 ```elixir
 <%= pagination @conn, @pagination, [current_class: "is-current"], fn p -> %>
-<nav class="pagination" role="navigation" aria-label="pagination">
-  <%= pagination_link p, :previous, label: "<< Newer", class: "pagination-previous", force_show: true %>
-  <%= pagination_link p, :next, class: "pagination-next", force_show: true %>
-  <ul class="pagination-list">
-    <li><%= pagination_link p, :first, class: "pagination-link", force_show: true %></li>
-    <%= for {pagenum, _, active} <- p.page_items do  %>
-      <li><%= pagination_link p, pagenum, class: "pagination-link", current: active %></li>
-    <% end %>
-    <li><%= pagination_link p, :last, class: "pagination-link", force_show: true %></li>
-  </ul>
-</nav>
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <ul class="pagination-list">
+      <li><%= pagination_link p, :first, label: gettext("First"), class: "pagination-link", force_show: true %></li>
+      <%= for {pagenum, _, active} <- p.page_items do  %>
+        <li><%= pagination_link p, pagenum, class: "pagination-link", current: active %></li>
+      <% end %>
+      <li><%= pagination_link p, :last, label: gettext("Last"), class: "pagination-link", force_show: true %></li>
+    </ul>
+  </nav>
 <% end %>
 ```
 
-Building apis or SPA's, no problem Phoenix.Pagination has support for Json.
+You can have as many pagination templates as you want (even with custom filenames), and render it where you need:
+```elixir
+<%= render MyAppWeb.PaginationView, "pagination.html", conn: @conn, pagination: @pagination %>
+```
+
+Building APIs or SPAs? no problem Phoenix.Pagination has support for Json.
 
 ```elixir
-defmodule MyApp.ProductView do
-  use MyApp.Web, :view
+defmodule MyAppWeb.ProductView do
+  use MyAppWeb, :view
   import Phoenix.Pagination.JSON
 
   def render("index.json", %{products: products, pagination: pagination, conn: conn}) do
-    %{data: render_many(products, MyApp.ProductView, "product.json"),
+    %{data: render_many(products, MyAppWeb.ProductView, "product.json"),
       pagination: paginate(conn, pagination)}
   end
 
@@ -88,14 +89,10 @@ You can also send in options to paginate helper look at the docs for more detail
 
 Please do send pull requests and bug reports, positive feedback is always welcome.
 
-
-## Acknowledgement
-
-This project comes from a [Kerosene](https://github.com/elixirdrops/kerosene) fork!
-
-I would like to Thank
+We would like to thank
 
 * elixirdrops ([@elixirdrops](https://github.com/elixirdrops))
+* [Kerosene](https://github.com/elixirdrops/kerosene)
 
 ## License
 

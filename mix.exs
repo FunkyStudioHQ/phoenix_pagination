@@ -16,7 +16,7 @@ defmodule Phoenix.Pagination.Mixfile do
      docs: [source_ref: "v#{@version}", main: "phoenix_pagination"],
      source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
      description: """
-     Pagination for Ecto and Phoenix.
+     Simple pagination for Ecto and Phoenix using plaing EEx templates.
      """]
   end
 

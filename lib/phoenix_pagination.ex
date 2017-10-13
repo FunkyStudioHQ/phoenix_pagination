@@ -1,20 +1,22 @@
 defmodule Phoenix.Pagination do
+  @moduledoc """
+  Pagination for Ecto and Phoenix.
+  """
+
   defstruct items: [], per_page: 0, max_page: 0, page: 0, total_pages: 0, total_count: 0, params: []
   import Ecto.Query
+
+  alias Phoenix.Pagination
 
   @per_page 10
   @max_page 1000
   @page 1
 
-  @moduledoc """
-  Pagination for Ecto and Phoenix.
-  """
-
   defmacro __using__(opts \\ []) do
     quote do
       def paginate(query, params \\ %{}, options \\ []) do
         opts = Keyword.merge(unquote(opts), options)
-        Phoenix.Pagination.paginate(__MODULE__, query, params, opts)
+        Pagination.paginate(__MODULE__, query, params, opts)
       end
     end
   end
@@ -91,7 +93,7 @@ defmodule Phoenix.Pagination do
 
   def get_total_pages(_, nil), do: 1
   def get_total_pages(count, per_page) do
-    Float.ceil(count / per_page) |> trunc
+    (count / per_page) |> Float.ceil |> trunc
   end
 
   def get_per_page(params) do
@@ -109,7 +111,7 @@ defmodule Phoenix.Pagination do
   end
 
   def get_page(params, total_pages) do
-    page = Keyword.get(params, :page, 1) |> to_integer()
+    page = params |> Keyword.get(:page, 1) |> to_integer()
 
     case page > params[:max_page] do
       true -> total_pages

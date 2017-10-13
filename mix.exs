@@ -5,7 +5,7 @@ defmodule Phoenix.Pagination.Mixfile do
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.5.1",
+     elixir: "~> 1.4",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,
@@ -45,9 +45,10 @@ defmodule Phoenix.Pagination.Mixfile do
       {:ecto, "~> 2.2"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
+      {:credo, "~> 0.8", only: [:dev, :test]},
       # Docs dependencies
       {:earmark, "~> 1.1", only: :docs},
-      {:ex_doc, "~> 0.16", only: :docs},
+      {:ex_doc, "~> 0.17", only: :docs},
       {:inch_ex, "~> 0.5", only: :docs}
     ]
   end

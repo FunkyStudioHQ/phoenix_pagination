@@ -1,6 +1,12 @@
 defmodule Phoenix.Pagination.HTML do
+  @moduledoc """
+  HTML helpers to render the pagination links in templates.
+  """
+
   use Phoenix.HTML
-  import Phoenix.Pagination.Paginator, only: [build_options: 1]
+
+  alias Phoenix.Pagination.Paginator
+  import Paginator, only: [build_options: 1]
 
   @buttons_labels ~w(first previous next last)a
 
@@ -14,7 +20,7 @@ defmodule Phoenix.Pagination.HTML do
     opts = build_options(opts)
 
     page_list = conn
-    |> Phoenix.Pagination.Paginator.paginate(paginator, opts)
+    |> Paginator.paginate(paginator, opts)
 
     %{
       options: opts,
@@ -28,7 +34,7 @@ defmodule Phoenix.Pagination.HTML do
     |> build_options
 
     pagination.all_links
-    |> Enum.filter(fn{pagenum, _, _, _}-> pagenum === name end)
+    |> Enum.filter(fn {pagenum, _, _, _} -> pagenum === name end)
     |> build_link(name, options)
   end
 
@@ -39,7 +45,7 @@ defmodule Phoenix.Pagination.HTML do
     end
   end
   defp build_link(button, _name, opts) do
-    [{name, _,url, current}] = button
+    [{name, _, url, current}] = button
     link text_label(name, opts[:label]), to: url, class: css_class(current, opts)
   end
 
@@ -48,8 +54,8 @@ defmodule Phoenix.Pagination.HTML do
 
   defp list_links(page_list) do
     page_list
-    |> Enum.filter(fn{label, _, _, _}-> !Enum.member?(@buttons_labels, label) end)
-    |> Enum.map(fn{label, _, url, current}-> {label, url, current} end)
+    |> Enum.filter(fn {label, _, _, _} -> !Enum.member?(@buttons_labels, label) end)
+    |> Enum.map(fn {label, _, url, current} -> {label, url, current} end)
   end
 
   defp css_class(true, opts), do: "#{opts[:class]} #{opts[:current_class]}"

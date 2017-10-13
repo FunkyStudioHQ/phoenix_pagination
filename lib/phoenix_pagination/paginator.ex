@@ -1,11 +1,12 @@
 defmodule Phoenix.Pagination.Paginator do
-  use Phoenix.HTML
-
-  @default [window: 3, range: true, current_class: "is-current"]
-
   @moduledoc """
   Helpers to render the pagination links and more.
   """
+
+  use Phoenix.HTML
+  @default [window: 3, range: true, current_class: "is-current"]
+
+  alias Plug.Conn.Query
 
   @doc false
   def paginate(conn, paginator, opts \\ []) do
@@ -79,11 +80,11 @@ defmodule Phoenix.Pagination.Paginator do
   Constructs a query param from a keyword list
   """
   def build_query(params) do
-    params |> Plug.Conn.Query.encode
+    params |> Query.encode
   end
 
   def build_params(params, params2) do
-    Map.merge(params, params2) |> normalize_keys()
+    params |> Map.merge(params2) |> normalize_keys()
   end
 
   def normalize_keys(params) when is_map(params) do

@@ -1,6 +1,6 @@
 defmodule Phoenix.Pagination.Mixfile do
   use Mix.Project
-  @version "0.0.3"
+  @version "0.5.0"
 
   def project do
     [app: :phoenix_pagination,

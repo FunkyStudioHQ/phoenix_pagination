@@ -22,10 +22,6 @@ defmodule Phoenix.Pagination.Mixfile do
      description: """
      Simple pagination for Ecto and Phoenix using plaing EEx templates.
      """]
-
-     [app: :my_app,
-   version: "0.1.0-dev",
-   deps: deps(),
   end
 
   # Configuration for the OTP application

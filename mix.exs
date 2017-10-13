@@ -47,9 +47,9 @@ defmodule Phoenix.Pagination.Mixfile do
       {:postgrex, ">= 0.0.0", only: [:test]},
       {:credo, "~> 0.8", only: [:dev, :test]},
       # Docs dependencies
-      {:earmark, "~> 1.1", only: :docs},
-      {:ex_doc, "~> 0.17", only: :docs},
-      {:inch_ex, "~> 0.5", only: :docs}
+      {:earmark, "~> 1.1", only: [:docs, :dev]},
+      {:ex_doc, "~> 0.17", only: [:docs, :dev]},
+      {:inch_ex, "~> 0.5", only: [:docs, :dev]}
     ]
   end
 

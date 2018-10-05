@@ -75,6 +75,6 @@ defmodule Phoenix.Pagination.Mixfile do
   end
 
   def aliases do
-    ["test": ["ecto.create --quite", "ecto.migrate --quite", "test"]]
+    [test: ["ecto.create --quite", "ecto.migrate --quite", "test"]]
   end
 end

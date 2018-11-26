@@ -52,7 +52,7 @@ defmodule Phoenix.Pagination.Mixfile do
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       # Docs dependencies
       {:earmark, "~> 1.3.0", only: :dev},
-      {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.19.1", only: :dev, runtime: false},
       {:inch_ex, "~> 0.5", only: :dev}
     ]
   end

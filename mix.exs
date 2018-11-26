@@ -1,11 +1,11 @@
 defmodule Phoenix.Pagination.Mixfile do
   use Mix.Project
-  @version "0.5.0"
+  @version "0.6.0"
 
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.4",
+     elixir: "~> 1.7",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,
@@ -44,15 +44,15 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 2.10"},
-      {:plug, "~> 1.4"},
-      {:ecto, "~> 2.2"},
+      {:phoenix_html, "~> 2.12"},
+      {:plug, "~> 1.7.1"},
+      {:ecto_sql, "~> 3.0"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
-      {:credo, "~> 0.8", only: [:dev, :test]},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       # Docs dependencies
-      {:earmark, "~> 1.1", only: :dev},
-      {:ex_doc, "~> 0.17", only: :dev, runtime: false},
+      {:earmark, "~> 1.3.0", only: :dev},
+      {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
       {:inch_ex, "~> 0.5", only: :dev}
     ]
   end

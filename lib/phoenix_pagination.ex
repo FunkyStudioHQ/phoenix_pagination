@@ -82,7 +82,9 @@ defmodule Phoenix.Pagination do
 
   def get_primary_key(query) do
     new_query = case is_map(query) do
-      true -> query.from |> elem(1)
+      true ->
+        {_, source} = query.from.source
+        source
       _ -> query
     end
 

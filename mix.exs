@@ -30,8 +30,8 @@ defmodule Phoenix.Pagination.Mixfile do
   def application do
     [applications: application(Mix.env)]
   end
-  defp application(:test), do: [:postgrex, :ecto, :logger]
-  defp application(_), do: [:logger]
+  defp application(:test), do: [:postgrex, :ecto_sql, :logger]
+  defp application(_), do: [:plug, :phoenix_html, :ecto, :ecto_sql, :logger]
 
   # Dependencies can be Hex packages:
   #
@@ -44,16 +44,18 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 2.12"},
+      {:phoenix_html, "~> 2.6"},
       {:plug, "~> 1.7.1"},
-      {:ecto_sql, "~> 3.0"},
+      {:ecto_sql, "~> 3.4.4"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
-      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      # {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       # Docs dependencies
       {:earmark, "~> 1.3.0", only: :dev},
-      {:ex_doc, "~> 0.19.1", only: :dev, runtime: false},
-      {:inch_ex, "~> 0.5", only: :dev}
+      {:ex_doc, "~> 0.22.0", only: :dev, runtime: false},
+      # {:inch_ex, "~> 0.5", only: :dev}
+      {:inch_ex, github: "rrrene/inch_ex", only: [:dev, :test]}
     ]
   end
 

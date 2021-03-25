@@ -1,11 +1,11 @@
 defmodule Phoenix.Pagination.Mixfile do
   use Mix.Project
-  @version "0.6.0"
+  @version "0.7.0"
 
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.7",
+     elixir: "~> 1.11",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,
@@ -30,7 +30,7 @@ defmodule Phoenix.Pagination.Mixfile do
   def application do
     [applications: application(Mix.env)]
   end
-  defp application(:test), do: [:postgrex, :ecto, :logger]
+  defp application(:test), do: [:postgrex, :ecto_sql, :logger]
   defp application(_), do: [:logger]
 
   # Dependencies can be Hex packages:
@@ -45,15 +45,16 @@ defmodule Phoenix.Pagination.Mixfile do
   defp deps do
     [
       {:phoenix_html, "~> 2.12"},
-      {:plug, "~> 1.7.1"},
+      {:plug, "~> 1.11.1"},
       {:ecto_sql, "~> 3.0"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
-      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       # Docs dependencies
       {:earmark, "~> 1.3.0", only: :dev},
-      {:ex_doc, "~> 0.19.1", only: :dev, runtime: false},
-      {:inch_ex, "~> 0.5", only: :dev}
+      {:ex_doc, "~> 0.24", only: :dev, runtime: false},
+      # {:inch_ex, "~> 0.5", only: :dev}
+      {:inch_ex, github: "rrrene/inch_ex", only: :dev}
     ]
   end
 
@@ -75,6 +76,6 @@ defmodule Phoenix.Pagination.Mixfile do
   end
 
   def aliases do
-    [test: ["ecto.create --quite", "ecto.migrate --quite", "test"]]
+    [test: ["ecto.create", "ecto.migrate", "test"]]
   end
 end

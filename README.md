@@ -9,7 +9,7 @@ If [available in Hex](https://hex.pm/packages/phoenix_pagination), can be instal
 Add phoenix_pagination to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
-  [{:phoenix_pagination, "~> 0.6.0"}]
+  [{:phoenix_pagination, "~> 0.7.0"}]
 end
 ```
 

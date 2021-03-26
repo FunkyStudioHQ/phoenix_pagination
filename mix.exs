@@ -45,15 +45,15 @@ defmodule Phoenix.Pagination.Mixfile do
   defp deps do
     [
       {:phoenix_html, "~> 2.6"},
-      {:plug, "~> 1.7.1"},
-      {:ecto_sql, "~> 3.4.4"},
+      {:plug, "~> 1.7"},
+      {:ecto_sql, "~> 3.4"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
       # {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       # Docs dependencies
-      {:earmark, "~> 1.3.0", only: :dev},
-      {:ex_doc, "~> 0.22.0", only: :dev, runtime: false},
+      {:earmark, "~> 1.3", only: :dev},
+      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
       # {:inch_ex, "~> 0.5", only: :dev}
       {:inch_ex, github: "rrrene/inch_ex", only: [:dev, :test]}
     ]
@@ -77,6 +77,6 @@ defmodule Phoenix.Pagination.Mixfile do
   end
 
   def aliases do
-    [test: ["ecto.create --quite", "ecto.migrate --quite", "test"]]
+    [test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]]
   end
 end

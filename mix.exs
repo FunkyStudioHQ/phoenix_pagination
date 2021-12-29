@@ -44,16 +44,16 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 2.6"},
-      {:plug, "~> 1.7"},
-      {:ecto_sql, "~> 3.4"},
+      {:phoenix_html, "~> 3.2.0"},
+      {:plug, "~> 1.12"},
+      {:ecto_sql, "~> 3.7"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},
       # {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       # Docs dependencies
-      {:earmark, "~> 1.3", only: :dev},
-      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      {:earmark, "~> 1.4", only: :dev},
+      {:ex_doc, "~> 0.26", only: :dev, runtime: false},
       # {:inch_ex, "~> 0.5", only: :dev}
       {:inch_ex, github: "rrrene/inch_ex", only: [:dev, :test]}
     ]

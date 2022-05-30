@@ -1,0 +1,28 @@
+# Version of docker-compose
+version: "3.3"
+
+services:
+  web:
+    build:
+      context: .
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: phoenix_pagination_dev
+      DB_HOST: postgres
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    networks:
+      - default
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:14.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: always
+    ports:
+      - "5432:5432"

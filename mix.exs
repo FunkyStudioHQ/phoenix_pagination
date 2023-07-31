@@ -18,7 +18,7 @@ defmodule Phoenix.Pagination.Mixfile do
        extras: ["README.md"],
        source_ref: "v#{@version}"],
      source_url: "https://github.com/lorenzopagano/phoenix_pagination.git",
-     homepage_url: "https://github.com/lorenzopagano/phoenix_pagination",
+     homepage_url: "https://github.com/FunkyStudioHQ/phoenix_pagination",
      description: """
      Simple pagination for Ecto and Phoenix using plaing EEx templates.
      """]
@@ -44,8 +44,8 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 3.3"},
-      {:plug, "~> 1.13.6"},
+      {:phoenix_html, "~> 3.3"}
+      {:plug, "~>  1.14"},
       {:ecto_sql, "~> 3.7"},
       # Test dependencies
       {:postgrex, ">= 0.0.0", only: [:test]},

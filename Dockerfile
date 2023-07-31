@@ -1,4 +1,4 @@
-FROM elixir:1.13.4
+FROM elixir:1.15.4
 
 RUN apt-get update && \
     apt-get install -y postgresql-client inotify-tools

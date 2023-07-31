@@ -5,7 +5,7 @@ defmodule Phoenix.Pagination.Mixfile do
   def project do
     [app: :phoenix_pagination,
      version: @version,
-     elixir: "~> 1.7",
+     elixir: "~> 1.14",
      elixirc_paths: path(Mix.env),
      package: package(),
      build_embedded: Mix.env == :prod,
@@ -17,8 +17,8 @@ defmodule Phoenix.Pagination.Mixfile do
        main: "readme",
        extras: ["README.md"],
        source_ref: "v#{@version}"],
-     source_url: "https://github.com/FunkyStudioHQ/phoenix_pagination.git",
-     homepage_url: "https://github.com/FunkyStudioHQ/phoenix_pagination",
+     source_url: "https://github.com/lorenzopagano/phoenix_pagination.git",
+     homepage_url: "https://github.com/lorenzopagano/phoenix_pagination",
      description: """
      Simple pagination for Ecto and Phoenix using plaing EEx templates.
      """]
@@ -44,7 +44,7 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 3.2.0"},
+      {:phoenix_html, "~> 3.3"},
       {:plug, "~> 1.13.6"},
       {:ecto_sql, "~> 3.7"},
       # Test dependencies

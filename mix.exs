@@ -44,7 +44,7 @@ defmodule Phoenix.Pagination.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 3.3"}
+      {:phoenix_html, "~> 3.3"},
       {:plug, "~>  1.14"},
       {:ecto_sql, "~> 3.7"},
       # Test dependencies

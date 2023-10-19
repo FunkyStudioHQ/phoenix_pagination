@@ -85,6 +85,12 @@ end
 
 You can also send in options to paginate helper look at the docs for more details.
 
+## Caveats
+
+You cannot use any parameter with `Phoenix.Pagination.Paginator.paginate/3` that ends with `_id`. It will be removed from the `%Pagination{}` struct and not included in any URL paths.
+
+See https://github.com/FunkyStudioHQ/phoenix_pagination/blob/master/lib/phoenix_pagination/paginator.ex#L73
+
 ## Contributing
 
 Please do send pull requests and bug reports, positive feedback is always welcome.
